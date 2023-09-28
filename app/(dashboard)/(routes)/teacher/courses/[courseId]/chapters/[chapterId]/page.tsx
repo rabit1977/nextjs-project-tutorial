@@ -1,15 +1,16 @@
-import { IconBadge } from '@/components/icon-badge';
-import { db } from '@/lib/db';
 import { auth } from '@clerk/nextjs';
-import { ArrowLeft, Eye, LayoutDashboard, Video } from 'lucide-react';
-import Link from 'next/link';
 import { redirect } from 'next/navigation';
-import { boolean } from 'zod';
+import Link from 'next/link';
+import { ArrowLeft, Eye, LayoutDashboard, Video } from 'lucide-react';
+
+import { db } from '@/lib/db';
+import { IconBadge } from '@/components/icon-badge';
+import { Banner } from '@/components/banner';
+
 import { ChapterTitleForm } from './_components/chapter-title-form';
 import { ChapterDescriptionForm } from './_components/chapter-description-form';
 import { ChapterAccessForm } from './_components/chapter-access-form';
 import { ChapterVideoForm } from './_components/chapter-video-form';
-import { Banner } from '@/components/banner';
 import { ChapterActions } from './_components/chapter-actions';
 
 const ChapterIdPage = async ({
@@ -32,6 +33,7 @@ const ChapterIdPage = async ({
       muxData: true,
     },
   });
+
   if (!chapter) {
     return redirect('/');
   }
@@ -61,6 +63,7 @@ const ChapterIdPage = async ({
               className='flex items-center text-sm hover:opacity-75 transition mb-6'
             >
               <ArrowLeft className='h-4 w-4 mr-2' />
+              Back to course setup
             </Link>
             <div className='flex items-center justify-between w-full'>
               <div className='flex flex-col gap-y-2'>
@@ -85,7 +88,6 @@ const ChapterIdPage = async ({
                 <IconBadge icon={LayoutDashboard} />
                 <h2 className='text-xl'>Customize your chapter</h2>
               </div>
-              {/* ChapterTitleForm */}
               <ChapterTitleForm
                 initialData={chapter}
                 courseId={params.courseId}
@@ -116,8 +118,8 @@ const ChapterIdPage = async ({
             </div>
             <ChapterVideoForm
               initialData={chapter}
-              courseId={params.courseId}
               chapterId={params.chapterId}
+              courseId={params.courseId}
             />
           </div>
         </div>
@@ -125,4 +127,5 @@ const ChapterIdPage = async ({
     </>
   );
 };
+
 export default ChapterIdPage;
