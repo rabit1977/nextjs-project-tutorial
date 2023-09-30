@@ -51,6 +51,7 @@ model Attachment {
 
   @@index([courseId])
 }
+
 model Chapter {
   id String @id @default(uuid())
   title String
@@ -80,8 +81,8 @@ model MuxData {
 
   chapterId String @unique
   chapter Chapter @relation(fields: [chapterId], references: [id], onDelete: Cascade)
-
 }
+
 model UserProgress {
   id String @id @default(uuid())
   userId String
@@ -101,19 +102,20 @@ model UserProgress {
 model Purchase {
   id String @id @default(uuid())
   userId String
-  
+
   courseId String
   course Course @relation(fields: [courseId], references: [id], onDelete: Cascade)
 
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt()
 
-createdat DateTime @default(now())
-updatedAt DateTime @updatedAt
-
+  @@unique([userId, courseId])
   @@index([courseId])
 }
+
 model StripeCustomer {
   id String @id @default(uuid())
-  userId String  @unique
+  userId String @unique
   stripeCustomerId String @unique
 
   createdAt DateTime @default(now())
