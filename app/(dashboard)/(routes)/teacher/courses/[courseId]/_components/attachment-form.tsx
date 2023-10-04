@@ -11,7 +11,7 @@ import toast from 'react-hot-toast';
 import * as z from 'zod';
 
 interface AttachmentFormProps {
-  initialData: Course & { attachments: Attachment[] };
+  initialData: Course & { attachments: Attachment[]};
   courseId: string;
 }
 
