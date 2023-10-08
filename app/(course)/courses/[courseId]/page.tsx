@@ -1,7 +1,11 @@
-import { db } from '@/lib/db';
-import { redirect } from 'next/navigation';
+import { db } from "@/lib/db";
+import { redirect } from "next/navigation";
 
-const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
+const CourseIdPage = async ({
+  params
+}: {
+  params: { courseId: string; }
+}) => {
   const course = await db.course.findUnique({
     where: {
       id: params.courseId,
@@ -12,15 +16,17 @@ const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
           isPublished: true,
         },
         orderBy: {
-          position: 'asc',
-        },
-      },
-    },
+          position: "asc"
+        }
+      }
+    }
   });
-  if (!course) {
-    return redirect('/');
-  }
-  return redirect(`/courses/${course.id}/chapters/${course.chapters[0].id}`);
-};
 
+  if (!course) {
+    return redirect("/");
+  }
+
+  return redirect(`/courses/${course.id}/chapters/${course.chapters[0].id}`);
+}
+ 
 export default CourseIdPage;
