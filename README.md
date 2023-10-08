@@ -1,34 +1,44 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Run npm install
+<!-- Run This three commands after you get the keys from clerk, Mux, Stripe, Uploadthing, and Mongodb database -->
+In terminal run npx prisma generate
+In terminal run - node scripts/seed.ts
+In terminal run npx prisma db push
 
-## Getting Started
+Go to clerk.com and create project and take the keys
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+CLERK_SECRET_KEY=
 
-First, run the development server:
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
+NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/
+NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+# This was inserted by `prisma init`:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# Environment variables declared in this file are automatically made available to Prisma.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# See the documentation for more detail: https://pris.ly/d/prisma-schema#accessing-environment-variables-from-the-schema
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+# Prisma supports the native connection string format for PostgreSQL, MySQL, SQLite, SQL Server, MongoDB and CockroachDB.
 
-## Learn More
+# See the documentation for all the connection string options: https://pris.ly/d/connection-strings
 
-To learn more about Next.js, take a look at the following resources:
+# DATABASE_URL=
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+DATABASE_URL='add here mongodb database'
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Go to UploadThing and create account, create project and take the secret and appId keys
+UPLOADTHING_SECRET=
+UPLOADTHING_APP_ID=
 
-## Deploy on Vercel
+Go to mux create account and create project
+MUX_TOKEN_ID=
+MUX_TOKEN_SECRET=
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+STRIPE_API_PUBLISHABLE_KEY=
+STRIPE_API_KEY=
+STRIPE_WEBHOOK_SECRET=
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+
+NEXT_PUBLIC_TEACHER_ID= go to clerkjs inside the project find the users and then copy userId
