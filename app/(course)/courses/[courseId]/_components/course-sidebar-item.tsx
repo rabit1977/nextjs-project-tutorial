@@ -37,8 +37,8 @@ export const CourseSidebarItem = ({
       className={cn(
         'flex items-center gap-x-2 text-slate-500 text-sm font-[500] pl-6 transition-all hover:text-slate-400 hover:bg-slate-800/80',
         isActive && 'text-slate-200 hover:bg-slate-800/80 hover:text-slate-50',
-        isCompleted && 'text-emerald-700 hover:text-emerald-700',
-        isCompleted && isActive && 'bg-emerald-200/20 '
+        isCompleted && 'text-emerald-500 hover:text-emerald-400',
+        isCompleted && isActive && 'bg-slate-200/20 '
       )}
     >
       <div className='flex items-center gap-x-2 py-4'>
@@ -47,7 +47,7 @@ export const CourseSidebarItem = ({
           className={cn(
             'text-slate-500 hover:text-slate-50',
             isActive && 'text-slate-200',
-            isCompleted && 'text-emerald-700'
+            isCompleted && 'text-emerald-600'
           )}
         />
         {label}
@@ -56,7 +56,7 @@ export const CourseSidebarItem = ({
         className={cn(
           'ml-auto opacity-0 border-2 border-slate-600 h-full transition-all',
           isActive && 'opacity-100',
-          isCompleted && 'border-emerald-700'
+          isCompleted && 'border-emerald-600'
         )}
       />
     </button>
