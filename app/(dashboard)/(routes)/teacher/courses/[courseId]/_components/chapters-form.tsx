@@ -86,7 +86,7 @@ export const ChaptersForm = ({
   }
 
   return (
-    <div className="relative mt-6 border bg-slate-100 rounded-md p-4">
+    <div className="relative mt-6 border bg-slate-100 rounded-md p-4 dark:bg-[#0F1729]">
       {isUpdating && (
         <div className="absolute h-full w-full bg-slate-500/20 top-0 right-0 rounded-m flex items-center justify-center">
           <Loader2 className="animate-spin h-6 w-6 text-sky-700" />
@@ -109,7 +109,7 @@ export const ChaptersForm = ({
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
-            className="space-y-4 mt-4"
+            className="space-y-4 mt-4 "
           >
             <FormField
               control={form.control}

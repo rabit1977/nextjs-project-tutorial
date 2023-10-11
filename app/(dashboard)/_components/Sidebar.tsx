@@ -1,15 +1,23 @@
-import { Logo } from "./logo"
-import { SidebarRoutes } from "./sidebar-routes"
+'use client';
+
+import { useRouter } from 'next/navigation';
+import { Logo } from './logo';
+import { SidebarRoutes } from './sidebar-routes';
 
 export const Sidebar = () => {
+  const router = useRouter();
+
+  function onClick() {
+    router.push('/');
+  }
   return (
-    <div className="h-full border-r flex flex-col overflow-y-auto bg-white shadow-sm">
-      <div className="p-6">
+    <div className='h-full border-r flex flex-col overflow-y-auto shadow-sm dark:bg-slate-900'>
+      <button onClick={onClick} className='p-6'>
         <Logo />
-      </div>
-      <div className="flex flex-col w-full">
+      </button>
+      <div className='flex flex-col w-full '>
         <SidebarRoutes />
       </div>
     </div>
-  )
-}
+  );
+};
