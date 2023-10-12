@@ -77,7 +77,7 @@ export const ChaptersList = ({
                     className={cn(
                       'flex items-center gap-x-2 bg-slate-200 border border-white/20 text-slate-700 rounded-md mb-4 text-sm dark:bg-[#0F1729]',
                       chapter.isPublished &&
-                        'bg-sky-100 border text-slate-300'
+                        'border text-slate-800 border-slate-300'
                     )}
                     ref={provided.innerRef}
                     {...provided.draggableProps}
@@ -86,7 +86,7 @@ export const ChaptersList = ({
                       className={cn(
                         'px-2 py-3 border-r hover:bg-slate-300 rounded-l-md transition ',
                         chapter.isPublished &&
-                          'border hover:bg-sky-200 dark:bg-[#0F1729]'
+                          'border border-slate-300 hover:bg-slate-300 dark:bg-[#0F1729]'
                       )}
                       {...provided.dragHandleProps}
                     >
