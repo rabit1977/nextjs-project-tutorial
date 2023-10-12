@@ -5,7 +5,6 @@ import { CheckCircle, XCircle } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import toast from "react-hot-toast";
-
 import { Button } from "@/components/ui/button";
 import { useConfettiStore } from "@/hooks/use-confetti-store";
 
@@ -29,7 +28,6 @@ export const CourseProgressButton = ({
   const onClick = async () => {
     try {
       setIsLoading(true);
-
       await axios.put(`/api/courses/${courseId}/chapters/${chapterId}/progress`, {
         isCompleted: !isCompleted
       });

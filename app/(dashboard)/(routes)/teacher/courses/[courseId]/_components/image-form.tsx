@@ -83,7 +83,7 @@ export const ImageForm = ({
         )
       )}
       {isEditing && (
-        <div>
+        <div className="">
           <FileUpload
             endpoint="courseImage"
             onChange={(url) => {
@@ -92,7 +92,7 @@ export const ImageForm = ({
               }
             }}
           />
-          <div className="text-xs text-muted-foreground mt-4">
+          <div className="text-xs text-muted-foreground mt-4 ">
             16:9 aspect ratio recommended
           </div>
         </div>
