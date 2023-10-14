@@ -2,7 +2,6 @@
 
 import { LucideIcon } from 'lucide-react';
 import { usePathname, useRouter } from 'next/navigation';
-
 import { cn } from '@/lib/utils';
 
 interface SidebarItemProps {
@@ -34,7 +33,7 @@ export const SidebarItem = ({ icon: Icon, label, href }: SidebarItemProps) => {
           'text-sky-700 bg-sky-200/20 hover:bg-sky-200/20 hover:text-sky-700 dark:text-slate-200'
       )}
     >
-      <div className='flex items-center gap-x-2 py-4'>
+      <span className='flex items-center gap-x-2 py-4'>
         <Icon
           size={22}
           className={cn(
@@ -43,8 +42,8 @@ export const SidebarItem = ({ icon: Icon, label, href }: SidebarItemProps) => {
           )}
         />
         {label}
-      </div>
-      <div
+      </span>
+      <span
         className={cn(
           'ml-auto opacity-0 border-2 border-sky-700 h-full transition-all',
           isActive && 'opacity-100'
