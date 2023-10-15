@@ -28,7 +28,7 @@ export default async function RootLayout({
           storageKey='discord-theme'
         >
           <body className={inter.className}>
-            <ConfettiProvider />
+            <ConfettiProvider/>
             <ToastProvider />
             {children}
           </body>
