@@ -1,7 +1,7 @@
-import { Category, Course } from "@prisma/client";
+import { Category, Course } from '@prisma/client';
 
-import { getProgress } from "@/actions/get-progress";
-import { db } from "@/lib/db";
+import { getProgress } from '@/actions/get-progress';
+import { db } from '@/lib/db';
 
 type CourseWithProgressWithCategory = Course & {
   category: Category | null;
@@ -18,7 +18,7 @@ type GetCourses = {
 export const getCourses = async ({
   userId,
   title,
-  categoryId
+  categoryId,
 }: GetCourses): Promise<CourseWithProgressWithCategory[]> => {
   try {
     const courses = await db.course.findMany({
@@ -26,6 +26,7 @@ export const getCourses = async ({
         isPublished: true,
         title: {
           contains: title,
+          mode: 'insensitive',
         },
         categoryId,
       },
@@ -37,40 +38,41 @@ export const getCourses = async ({
           },
           select: {
             id: true,
-          }
+          },
         },
         purchases: {
           where: {
             userId,
-          }
-        }
+          },
+        },
       },
       orderBy: {
-        createdAt: "desc",
-      }
+        createdAt: 'desc',
+      },
     });
 
-    const coursesWithProgress: CourseWithProgressWithCategory[] = await Promise.all(
-      courses.map(async course => {
-        if (course.purchases.length === 0) {
+    const coursesWithProgress: CourseWithProgressWithCategory[] =
+      await Promise.all(
+        courses.map(async (course) => {
+          if (course.purchases.length === 0) {
+            return {
+              ...course,
+              progress: null,
+            };
+          }
+
+          const progressPercentage = await getProgress(userId, course.id);
+
           return {
             ...course,
-            progress: null,
-          }
-        }
-
-        const progressPercentage = await getProgress(userId, course.id);
-
-        return {
-          ...course,
-          progress: progressPercentage,
-        };
-      })
-    );
+            progress: progressPercentage,
+          };
+        })
+      );
 
     return coursesWithProgress;
   } catch (error) {
-    console.log("[GET_COURSES]", error);
+    console.log('[GET_COURSES]', error);
     return [];
   }
-}
+};

@@ -28,13 +28,19 @@ export const CourseProgressButton = ({
   const onClick = async () => {
     try {
       setIsLoading(true);
-      await axios.put(
-        `/api/courses/${courseId}/chapters/${chapterId}/progress`,
-        {
-          isCompleted: !isCompleted,
-        }
-      );
-
+      // await axios.put(
+      //   `/api/courses/${courseId}/chapters/${chapterId}/progress`,
+      //   {
+      //     isCompleted: !isCompleted,
+      //   }
+      // );
+      await fetch(`/api/courses/${courseId}/chapters/${chapterId}/progress`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ isCompleted: !isCompleted }),
+      });
       if (!isCompleted && !nextChapterId) {
         confetti.onOpen();
       }

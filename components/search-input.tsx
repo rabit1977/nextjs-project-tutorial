@@ -31,15 +31,15 @@ export const SearchInput = () => {
     );
 
     router.push(url);
-  }, [debouncedValue, currentCategoryId, router, pathname]);
+  }, [debouncedValue, currentCategoryId]);
 
   return (
-    <div className='relative '>
+    <div className='relative rounded-full '>
       <Search className='h-4 w-4 absolute top-3 left-3 text-slate-600' />
       <Input
         onChange={(e) => setValue(e.target.value)}
         value={value}
-        className='w-full md:w-[300px] pl-9 rounded-full bg-slate-100 focus-visible:ring-slate-200'
+        className='w-full md:w-[300px] pl-9 bg-slate-100 focus-visible:ring-slate-200 rounded-full dark:bg-[#0F1729]'
         placeholder='Search for a course'
       />
     </div>

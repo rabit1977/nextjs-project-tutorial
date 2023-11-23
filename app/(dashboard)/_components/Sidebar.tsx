@@ -15,7 +15,7 @@ export const Sidebar = () => {
       <button onClick={onClick} className='p-6'>
         <Logo />
       </button>
-      <div className='flex flex-col w-full '>
+      <div className='flex flex-col'>
         <SidebarRoutes />
       </div>
     </div>
