@@ -34,7 +34,7 @@ export const Actions = ({ disabled, courseId, isPublished }: ActionsProps) => {
         confetti.onOpen();
         setTimeout(() => {
           router.push('/search');
-        }, 4000);
+        }, 3000);
       }
 
       router.refresh();
@@ -48,12 +48,10 @@ export const Actions = ({ disabled, courseId, isPublished }: ActionsProps) => {
   const onDelete = async () => {
     try {
       setIsLoading(true);
-
       await axios.delete(`/api/courses/${courseId}`);
-
       toast.success('Course deleted');
-      router.refresh();
       router.push(`/teacher/courses`);
+      router.refresh();
     } catch {
       toast.error('Something went wrong');
     } finally {

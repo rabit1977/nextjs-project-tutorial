@@ -1,44 +1,76 @@
-"use client";
-
-import axios from "axios";
-import { useState } from "react";
-import toast from "react-hot-toast";
-import { Button } from "@/components/ui/button";
-import { formatPrice } from "@/lib/format";
+'use client';
+// use custom hook
+import { useState, useEffect } from 'react';
+import toast from 'react-hot-toast';
+import { Button } from '@/components/ui/button';
+import { formatPrice } from '@/lib/format';
 
 interface CourseEnrollButtonProps {
   price: number;
   courseId: string;
 }
 
+// custom hook to fetch data from the API
+const useFetch = (url: string) => {
+  const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    // set loading state to true
+    setIsLoading(true);
+
+    // use fetch instead of axios
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        // set data state to the fetched data
+        setData(data);
+        // set loading state to false
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        // set error state to the error message
+        setError(error.message);
+        // set loading state to false
+        setIsLoading(false);
+      });
+  }, [url]); // run the effect only when the url changes
+
+  return { data, error, isLoading };
+};
+
 export const CourseEnrollButton = ({
   price,
   courseId,
 }: CourseEnrollButtonProps) => {
-  const [isLoading, setIsLoading] = useState(false);
+  // use the custom hook to fetch data from the API
+  const { isLoading } = useFetch(`/api/courses/${courseId}/checkout`);
 
   const onClick = async () => {
     try {
-      setIsLoading(true);
+      // use fetch instead of axios
+      const response = await fetch(`/api/courses/${courseId}/checkout`, {
+        method: 'POST',
+      });
 
-      const response = await axios.post(`/api/courses/${courseId}/checkout`)
+      // get the response data
+      const data = await response.json();
 
-      window.location.assign(response.data.url);
+      window.location.assign(data.url);
     } catch {
-      toast.error("Something went wrong");
-    } finally {
-      setIsLoading(false);
+      toast.error('Something went wrong');
     }
-  }
+  };
 
   return (
     <Button
       onClick={onClick}
       disabled={isLoading}
-      size="sm"
-      className="w-full md:w-auto"
+      size='sm'
+      className='w-full md:w-auto'
     >
       Enroll for {formatPrice(price)}
     </Button>
-  )
-}
+  );
+};

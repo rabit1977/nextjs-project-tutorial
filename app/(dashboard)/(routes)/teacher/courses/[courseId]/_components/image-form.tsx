@@ -68,7 +68,7 @@ export const ImageForm = ({
       </div>
       {!isEditing && (
         !initialData.imageUrl ? (
-          <div className="flex items-center justify-center h-60 bg-slate-200 rounded-md">
+          <div className="flex items-center justify-center h-60 bg-slate-200 dark:bg-slate-800 rounded-md">
             <ImageIcon className="h-10 w-10 text-slate-500" />
           </div>
         ) : (
@@ -90,7 +90,8 @@ export const ImageForm = ({
               if (url) {
                 onSubmit({ imageUrl: url });
               }
-            }}
+            }
+          }
           />
           <div className="text-xs text-muted-foreground mt-4 ">
             16:9 aspect ratio recommended

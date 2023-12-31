@@ -75,24 +75,26 @@ export const ChaptersList = ({
                 {(provided) => (
                   <div
                     className={cn(
-                      'flex items-center gap-x-2 bg-slate-200 border border-white/20 text-slate-700 rounded-md mb-4 text-sm dark:bg-[#0F1729]',
+                      'flex items-center gap-x-2 bg-slate-200 shadow-sm border border-slate-400/80  text-slate-900 rounded-md mb-4 text-sm dark:bg-[#0F1729]',
                       chapter.isPublished &&
-                        'border text-slate-800 border-slate-300'
+                        ' dark:text-slate-200  dark:border-slate-300'
                     )}
                     ref={provided.innerRef}
                     {...provided.draggableProps}
                   >
                     <div
                       className={cn(
-                        'px-2 py-3 border-r hover:bg-slate-300 rounded-l-md transition ',
+                        'px-2 py-3  border-r hover:bg-slate-300 rounded-l-md transition',
                         chapter.isPublished &&
-                          'border border-slate-300 hover:bg-slate-300 dark:bg-[#0F1729]'
+                          ' border-slate-400 hover:bg-slate-300 dark:bg-[#0F1729]'
                       )}
                       {...provided.dragHandleProps}
                     >
                       <Grip className='h-5 w-5' />
                     </div>
-                    <div className='line-clamp-1'>{chapter.title}</div>
+                    <div className='line-clamp-1 text-slate-600 dark:text-slate-400'>
+                      {chapter.title}
+                    </div>
                     <div className='ml-auto pr-2 flex items-center gap-x-2'>
                       {chapter.isFree && <Badge>Free</Badge>}
                       <Badge

@@ -19,20 +19,21 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang='en' suppressHydrationWarning className='dark'>
+    <html lang='en' className='dark'>
       <ClerkProvider>
-        <ThemeProvider
-          attribute='class'
-          defaultTheme='dark'
-          enableSystem={false}
-          storageKey='discord-theme'
-        >
-          <body className={inter.className}>
-            <ConfettiProvider/>
+        <body className={inter.className}>
+          <ThemeProvider
+            attribute='class'
+            defaultTheme='system'
+            enableSystem
+            storageKey='discord-theme'
+            disableTransitionOnChange
+          >
+            <ConfettiProvider />
             <ToastProvider />
             {children}
-          </body>
-        </ThemeProvider>
+          </ThemeProvider>
+        </body>
       </ClerkProvider>
     </html>
   );

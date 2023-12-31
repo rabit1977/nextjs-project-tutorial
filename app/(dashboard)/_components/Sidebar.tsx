@@ -12,7 +12,7 @@ export const Sidebar = () => {
   }
   return (
     <div className='h-full border-r flex flex-col overflow-y-auto shadow-sm dark:bg-slate-900'>
-      <button onClick={onClick} className='p-6'>
+      <button onClick={onClick} className='p-6 h-[80px]'>
         <Logo />
       </button>
       <div className='flex flex-col'>

@@ -3,16 +3,6 @@ import { Category, Chapter, Course } from '@prisma/client';
 import { db } from '@/lib/db';
 import { getProgress } from '@/actions/get-progress';
 
-// type CourseWithProgressWithCategory = Course & {
-//   category: Category;
-//   chapters: Chapter[];
-//   progress: number | null;
-// };
-
-// type DashboardCourses = {
-//   completedCourses: CourseWithProgressWithCategory[];
-//   coursesInProgress: CourseWithProgressWithCategory[];
-// }
 interface CourseWithProgressWithCategory extends Course {
   category: Category;
   chapters: Chapter[];

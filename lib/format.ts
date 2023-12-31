@@ -5,31 +5,27 @@ interface FormatPriceOptions {
   maximumFractionDigits?: number;
 }
 
+// Define a default options object to avoid repeating the default values
+const defaultOptions: FormatPriceOptions = {
+  locale: 'en-US',
+  currency: 'USD',
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2,
+};
+
 export const formatPrice = (
   price: number,
-  options: FormatPriceOptions = {}
+  // Use the spread operator to merge the default options with the user-provided options
+  options: FormatPriceOptions = { ...defaultOptions }
 ) => {
-  const {
-    locale = "en-US",
-    currency = "USD",
-    minimumFractionDigits = 2,
-    maximumFractionDigits = 2,
-  } = options;
+  // Use object destructuring to get the options values
+  const { locale, currency, minimumFractionDigits, maximumFractionDigits } =
+    options;
 
   return new Intl.NumberFormat(locale, {
-    style: "currency",
+    style: 'currency',
     currency,
     minimumFractionDigits,
     maximumFractionDigits,
   }).format(price);
 };
-
-
-
-
-// export const formatPrice = (price: number) => {
-//   return new Intl.NumberFormat("en-US", {
-//     style: "currency",
-//     currency: "USD"
-//   }).format(price)
-// }
