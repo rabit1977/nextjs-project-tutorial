@@ -1,5 +1,10 @@
+import { Metadata } from 'next';
 import { Navbar } from './_components/navbar';
 import { Sidebar } from './_components/sidebar';
+
+export const metadata: Metadata = {
+  title: 'Dashboard',
+};
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   return (

@@ -1,7 +1,6 @@
 'use client';
 
-import dynamic from 'next/dynamic';
-import { useMemo } from 'react';
+import { useReactQuill } from '@/hooks/useReactQuill';
 
 import 'react-quill/dist/quill.snow.css';
 
@@ -11,10 +10,7 @@ interface EditorProps {
 }
 
 export const Editor = ({ onChange, value }: EditorProps) => {
-  const ReactQuill = useMemo(
-    () => dynamic(() => import('react-quill'), { ssr: false }),
-    []
-  );
+  const ReactQuill = useReactQuill();
 
   return (
     <div className='bg-white dark:bg-[#0F1729]'>

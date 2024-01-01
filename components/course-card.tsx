@@ -30,12 +30,12 @@ export const CourseCard = ({
 }: CourseCardProps) => {
   return (
     <Link href={`/courses/${id}`}>
-      <div className='group hover:shadow-sm transition overflow-hidden border rounded-lg p-3 h-full lg:max-w-lg md:m-auto'>
+      <div className='group hover:ring-4 hover:ring-slate-500 transition overflow-hidden border rounded-lg p-4 h-full lg:max-w-lg md:m-auto space-y-2'>
         <div className='relative aspect-video rounded-md overflow-hidden'>
           <Image fill className='object-cover' alt={title} src={imageUrl} />
         </div>
         <div className='flex flex-col pt-3'>
-          <div className='text-lg md:text-base font-medium group-hover:text-sky-700 transition line-clamp-2 mb-2'>
+          <div className='text-lg md:text-base font-medium group-hover:text-sky-700 transition line-clamp-2'>
             {title}
           </div>
           <p className='text-xs text-muted-foreground'>{category}</p>

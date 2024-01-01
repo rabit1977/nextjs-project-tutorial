@@ -15,7 +15,7 @@ interface CoursesListProps {
 export const CoursesList = ({ items }: CoursesListProps) => {
   return (
     <div>
-      <div className='grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-10 md:gap-6'>
+      <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-10 md:gap-6'>
         {items.map((item) => (
           <CourseCard
             key={item.id}

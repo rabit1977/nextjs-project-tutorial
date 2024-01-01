@@ -1,8 +1,6 @@
 'use client';
 
 import { useReactQuill } from '@/hooks/useReactQuill';
-import dynamic from 'next/dynamic';
-import { useMemo } from 'react';
 
 import 'react-quill/dist/quill.bubble.css';
 
