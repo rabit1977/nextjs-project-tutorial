@@ -35,10 +35,10 @@ export const CourseSidebarItem = ({
       onClick={onClick}
       type='button'
       className={cn(
-        'flex items-center gap-x-2 text-slate-500 text-sm font-[500] pl-6 transition-all hover:text-slate-400 hover:bg-slate-800/80',
+        'flex items-center gap-x-2 text-slate-500 text-sm font-[500] transition-all hover:text-slate-400 hover:bg-slate-800/80 pl-3',
         isActive && 'text-slate-200 hover:bg-slate-800/80 hover:text-slate-50',
-        isCompleted && 'text-emerald-500 hover:text-emerald-400',
-        isCompleted && isActive && 'bg-slate-200/20 '
+        isCompleted && 'text-emerald-500 hover:text-emerald-400 ',
+        isCompleted && isActive && 'bg-slate-200/20'
       )}
     >
       <div className='flex items-center gap-x-2 py-4'>
@@ -50,11 +50,11 @@ export const CourseSidebarItem = ({
             isCompleted && 'text-emerald-600'
           )}
         />
-        {label}
+        <h3 className='line-clamp-1'>{label}</h3>
       </div>
       <div
         className={cn(
-          'ml-auto opacity-0 border-2 border-slate-600 h-full transition-all',
+          'ml-auto opacity-0 border-2 border-slate-600 h-full transition-all ',
           isActive && 'opacity-100',
           isCompleted && 'border-emerald-600'
         )}

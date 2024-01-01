@@ -1,5 +1,5 @@
 'use client';
-// use custom hook
+
 import { useState, useEffect } from 'react';
 import toast from 'react-hot-toast';
 import { Button } from '@/components/ui/button';
@@ -24,7 +24,6 @@ const useFetch = (url: string) => {
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
-        // set data state to the fetched data
         setData(data);
         // set loading state to false
         setIsLoading(false);

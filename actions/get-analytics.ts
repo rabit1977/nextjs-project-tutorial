@@ -6,30 +6,18 @@ type PurchaseWithCourse = Purchase & {
 };
 
 const groupByCourse = (purchases: PurchaseWithCourse[]) => {
-  return purchases.reduce((grouped, purchase) => {
+  const grouped: { [courseTitle: string]: number } = {};
+
+  purchases.forEach((purchase) => {
     const courseTitle = purchase.course.title;
     if (!grouped[courseTitle]) {
       grouped[courseTitle] = 0;
     }
     grouped[courseTitle] += purchase.course.price!;
-    return grouped;
-  }, {} as { [courseTitle: string]: number });
+  });
+
+  return grouped;
 };
-
-/* Another way of writting the groupedByCourse */
-// const groupByCourse = (purchases: PurchaseWithCourse[]) => {
-//   const grouped: { [courseTitle: string]: number } = {};
-
-//   purchases.forEach((purchase) => {
-//     const courseTitle = purchase.course.title;
-//     if (!grouped[courseTitle]) {
-//       grouped[courseTitle] = 0;
-//     }
-//     grouped[courseTitle] += purchase.course.price!;
-//   });
-
-//   return grouped;
-// };
 
 export const getAnalytics = async (userId: string) => {
   try {

@@ -6,6 +6,7 @@ import { db } from '@/lib/db';
 import { CourseProgress } from '@/components/course-progress';
 
 import { CourseSidebarItem } from './course-sidebar-item';
+import Link from 'next/link';
 
 interface CourseSidebarProps {
   course: Course & {
@@ -36,10 +37,15 @@ export const CourseSidebar = async ({
   });
 
   return (
-    <div className='h-full border-r flex flex-col overflow-y-auto shadow-sm '>
+    <div className='h-full border-r flex flex-col overflow-y-auto shadow-sm w-60'>
       <div className='flex flex-col'>
-        <div>
-          <h1 className='font-semibold text-2xl p-6'>{course.title}</h1>
+        <div className='h-[80px] flex justify-start items-center'>
+          <Link
+            href='/search'
+            className='font-semibold text-2xl pl-4 hover:opacity-90 '
+          >
+            {course.title}
+          </Link>
         </div>
         <div className='border-t p-6 pt-0'>
           {purchase && (
