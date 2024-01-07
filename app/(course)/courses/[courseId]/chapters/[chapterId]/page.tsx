@@ -11,6 +11,7 @@ import { VideoPlayer } from './_components/video-player';
 import { CourseEnrollButton } from './_components/course-enroll-button';
 import { CourseProgressButton } from './_components/course-progress-button';
 import Link from 'next/link';
+import CapitalizeString from '@/lib/capitalize-string';
 
 const ChapterIdPage = async ({
   params,
@@ -73,7 +74,9 @@ const ChapterIdPage = async ({
       </div>
       <div>
         <div className='p-4 flex flex-col md:flex-row items-center justify-between'>
-          <h2 className='text-2xl font-semibold'>{chapter.title}</h2>
+          <h2 className='text-2xl font-semibold'>
+            <CapitalizeString str={chapter.title}/>
+          </h2>
           {purchase ? (
             <CourseProgressButton
               chapterId={params.chapterId}

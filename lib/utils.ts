@@ -22,6 +22,11 @@ export const formatDateToLocal = (
   return formatter.format(date);
 };
 
+// CapitalizeString.js
+
+
+
+
 // export const formatDateTime = (dateString: Date) => {
 //   const dateTimeOptions: Intl.DateTimeFormatOptions = {
 //     weekday: 'short', // abbreviated weekday name (e.g., 'Mon')

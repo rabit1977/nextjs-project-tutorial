@@ -42,9 +42,9 @@ export const CourseSidebar = async ({
         <div className='h-[80px] flex justify-start items-center'>
           <Link
             href='/search'
-            className='font-semibold text-2xl pl-4 hover:opacity-90 '
+            className='font-semibold text-xl pl-4 hover:opacity-90 '
           >
-            {course.title}
+            {course.title.toUpperCase()}
           </Link>
         </div>
         <div className='border-t p-6 pt-0'>
