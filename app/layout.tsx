@@ -22,8 +22,8 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang='en' className='dark'>
-      <ClerkProvider>
+    <ClerkProvider>
+      <html lang='en' className='dark'>
         <body className={inter.className}>
           <ThemeProvider
             attribute='class'
@@ -37,7 +37,7 @@ export default async function RootLayout({
             {children}
           </ThemeProvider>
         </body>
-      </ClerkProvider>
-    </html>
+      </html>
+    </ClerkProvider>
   );
 }

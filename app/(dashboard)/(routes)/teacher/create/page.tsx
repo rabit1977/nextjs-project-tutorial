@@ -6,7 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import toast from 'react-hot-toast';
+import { toast } from 'sonner';
 
 import {
   Form,
@@ -54,7 +54,7 @@ const CreatePage = () => {
       const responseData = await response.json();
 
       // Assuming that response.data.id contains the ID of the newly created course
-      router.push(`/teacher/courses/${responseData.id}`);
+      // router.push(`/teacher/courses/${responseData.id}`);
       toast.success('Course created');
     } catch (error) {
       toast.error('Something went wrong');

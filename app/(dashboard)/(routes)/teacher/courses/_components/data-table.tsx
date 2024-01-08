@@ -68,7 +68,7 @@ export function DataTable<TData, TValue>({
         />
         <Link href='/teacher/create'>
           <Button>
-            <PlusCircle className='h-4 w-4 mr-2' />
+            <PlusCircle className='size-4 mr-2' />
             New course
           </Button>
         </Link>

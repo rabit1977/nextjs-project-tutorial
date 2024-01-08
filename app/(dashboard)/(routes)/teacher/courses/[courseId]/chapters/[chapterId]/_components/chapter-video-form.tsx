@@ -5,7 +5,7 @@ import axios from 'axios';
 import MuxPlayer from '@mux/mux-player-react';
 import { Pencil, PlusCircle, Video } from 'lucide-react';
 import { useState } from 'react';
-import toast from 'react-hot-toast';
+import { toast } from 'sonner';
 import { useRouter } from 'next/navigation';
 import { Chapter, MuxData } from '@prisma/client';
 import Image from 'next/image';
@@ -56,13 +56,13 @@ export const ChapterVideoForm = ({
           {isEditing && <>Cancel</>}
           {!isEditing && !initialData.videoUrl && (
             <>
-              <PlusCircle className='h-4 w-4 mr-2' />
+              <PlusCircle className='size-4 mr-2' />
               Add a video
             </>
           )}
           {!isEditing && initialData.videoUrl && (
             <>
-              <Pencil className='h-4 w-4 mr-2' />
+              <Pencil className='size-4 mr-2' />
               Edit video
             </>
           )}
@@ -71,7 +71,7 @@ export const ChapterVideoForm = ({
       {!isEditing &&
         (!initialData.videoUrl ? (
           <div className='flex items-center justify-center h-60 bg-slate-200 rounded-md dark:bg-[#0F1729]'>
-            <Video className='h-10 w-10 text-slate-500' />
+            <Video className='size-10 text-slate-500' />
           </div>
         ) : (
           <div className='relative aspect-video mt-2'>

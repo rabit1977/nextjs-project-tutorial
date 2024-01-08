@@ -5,7 +5,7 @@ import axios from 'axios';
 import { File, Loader2, PlusCircle, X } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import toast from 'react-hot-toast';
+import { toast } from 'sonner';
 import * as z from 'zod';
 
 import { FileUpload } from '@/components/file-upload';
@@ -63,7 +63,7 @@ export const AttachmentForm = ({
           {isEditing && <>Cancel</>}
           {!isEditing && (
             <>
-              <PlusCircle className='h-4 w-4 mr-2' />
+              <PlusCircle className='size-4 mr-2' />
               Add a file
             </>
           )}
@@ -83,11 +83,11 @@ export const AttachmentForm = ({
                   key={attachment.id}
                   className='flex items-center p-3 w-full bg-sky-100 border-sky-200 border text-sky-700 rounded-md'
                 >
-                  <File className='h-4 w-4 mr-2 flex-shrink-0' />
+                  <File className='size-4 mr-2 flex-shrink-0' />
                   <p className='text-xs line-clamp-1'>{attachment.name}</p>
                   {deletingId === attachment.id && (
                     <div>
-                      <Loader2 className='h-4 w-4 animate-spin' />
+                      <Loader2 className='size-4 animate-spin' />
                     </div>
                   )}
                   {deletingId !== attachment.id && (
@@ -95,7 +95,7 @@ export const AttachmentForm = ({
                       onClick={() => onDelete(attachment.id)}
                       className='ml-auto hover:opacity-75 transition'
                     >
-                      <X className='h-4 w-4' />
+                      <X className='size-4' />
                     </button>
                   )}
                 </div>

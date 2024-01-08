@@ -6,7 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { Loader2, PlusCircle } from 'lucide-react';
 import { useState } from 'react';
-import toast from 'react-hot-toast';
+import { toast } from 'sonner';
 import { useRouter } from 'next/navigation';
 import { Chapter, Course } from '@prisma/client';
 
@@ -96,7 +96,7 @@ export const ChaptersForm = ({ initialData, courseId }: ChaptersFormProps) => {
             <>Cancel</>
           ) : (
             <>
-              <PlusCircle className='h-4 w-4 mr-2' />
+              <PlusCircle className='size-4 mr-2' />
               Add a chapter
             </>
           )}

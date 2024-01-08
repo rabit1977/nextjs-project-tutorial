@@ -28,7 +28,7 @@ export const NavbarRoutes = () => {
         {isTeacherPage || isCoursePage ? (
           <Link href='/'>
             <Button size='sm' variant='ghost'>
-              <LogOut className='h-4 w-4 mr-2' />
+              <LogOut className='size-4 mr-2' />
               Exit
             </Button>
           </Link>

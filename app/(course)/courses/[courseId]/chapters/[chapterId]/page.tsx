@@ -1,17 +1,18 @@
 import { auth } from '@clerk/nextjs';
-import { redirect } from 'next/navigation';
 import { File } from 'lucide-react';
+import { redirect } from 'next/navigation';
 
 import { getChapter } from '@/actions/get-chapter';
 import { Banner } from '@/components/banner';
-import { Separator } from '@/components/ui/separator';
 import { Preview } from '@/components/preview';
-
-import { VideoPlayer } from './_components/video-player';
+import { Separator } from '@/components/ui/separator';
+import SwitchButton from '@/lib/switch-button';
+import AudioPlayer from '@/lib/play-video-controls';
+import CapitalizeString from '@/lib/capitalize-string';
+import Link from 'next/link';
 import { CourseEnrollButton } from './_components/course-enroll-button';
 import { CourseProgressButton } from './_components/course-progress-button';
-import Link from 'next/link';
-import CapitalizeString from '@/lib/capitalize-string';
+import { VideoPlayer } from './_components/video-player';
 
 const ChapterIdPage = async ({
   params,
@@ -75,7 +76,7 @@ const ChapterIdPage = async ({
       <div>
         <div className='p-4 flex flex-col md:flex-row items-center justify-between'>
           <h2 className='text-2xl font-semibold'>
-            <CapitalizeString str={chapter.title}/>
+            <CapitalizeString str={chapter.title} />
           </h2>
           {purchase ? (
             <CourseProgressButton
@@ -114,6 +115,8 @@ const ChapterIdPage = async ({
           </>
         )}
       </div>
+      <SwitchButton />
+      {/* <AudioPlayer /> */}
     </div>
   );
 };

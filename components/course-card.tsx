@@ -46,7 +46,7 @@ export const CourseCard = ({
                 {chaptersLength} {chaptersLength === 1 ? 'Chapter' : 'Chapters'}
               </span>
               <span className='ml-auto'>
-                {formatDateToLocal(createdAt.toString())}
+                {formatDateToLocal(createdAt).dateOnly}
               </span>
             </div>
           </div>

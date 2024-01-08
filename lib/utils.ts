@@ -8,69 +8,65 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export const formatDateToLocal = (
-  dateStr: string,
-  locale: string = 'en-US'
-) => {
-  const date = new Date(dateStr);
-  const options: Intl.DateTimeFormatOptions = {
-    day: 'numeric',
-    month: 'short',
-    year: 'numeric',
-  };
-  const formatter = new Intl.DateTimeFormat(locale, options);
-  return formatter.format(date);
-};
-
-// CapitalizeString.js
-
-
-
-
-// export const formatDateTime = (dateString: Date) => {
-//   const dateTimeOptions: Intl.DateTimeFormatOptions = {
-//     weekday: 'short', // abbreviated weekday name (e.g., 'Mon')
-//     month: 'short', // abbreviated month name (e.g., 'Oct')
-//     day: 'numeric', // numeric day of the month (e.g., '25')
-//     hour: 'numeric', // numeric hour (e.g., '8')
-//     minute: 'numeric', // numeric minute (e.g., '30')
-//     hour12: true, // use 12-hour clock (true) or 24-hour clock (false)
+// export const formatDateToLocal = (
+//   dateStr: string,
+//   locale: string = 'en-US'
+// ) => {
+//   const date = new Date(dateStr);
+//   const options: Intl.DateTimeFormatOptions = {
+//     day: 'numeric',
+//     month: 'short',
+//     year: 'numeric',
 //   };
-
-//   const dateOptions: Intl.DateTimeFormatOptions = {
-//     weekday: 'short', // abbreviated weekday name (e.g., 'Mon')
-//     month: 'short', // abbreviated month name (e.g., 'Oct')
-//     year: 'numeric', // numeric year (e.g., '2023')
-//     day: 'numeric', // numeric day of the month (e.g., '25')
-//   };
-
-//   const timeOptions: Intl.DateTimeFormatOptions = {
-//     hour: 'numeric', // numeric hour (e.g., '8')
-//     minute: 'numeric', // numeric minute (e.g., '30')
-//     hour12: true, // use 12-hour clock (true) or 24-hour clock (false)
-//   };
-
-//   const formattedDateTime: string = new Date(dateString).toLocaleString(
-//     'en-US',
-//     dateTimeOptions
-//   );
-
-//   const formattedDate: string = new Date(dateString).toLocaleString(
-//     'en-US',
-//     dateOptions
-//   );
-
-//   const formattedTime: string = new Date(dateString).toLocaleString(
-//     'en-US',
-//     timeOptions
-//   );
-
-//   return {
-//     dateTime: formattedDateTime,
-//     dateOnly: formattedDate,
-//     timeOnly: formattedTime,
-//   };
+//   const formatter = new Intl.DateTimeFormat(locale, options);
+//   return formatter.format(date);
 // };
+
+
+export const formatDateToLocal = (dateString: Date) => {
+  const dateTimeOptions: Intl.DateTimeFormatOptions = {
+    weekday: 'short', // abbreviated weekday name (e.g., 'Mon')
+    month: 'short', // abbreviated month name (e.g., 'Oct')
+    day: 'numeric', // numeric day of the month (e.g., '25')
+    hour: 'numeric', // numeric hour (e.g., '8')
+    minute: 'numeric', // numeric minute (e.g., '30')
+    hour12: true, // use 12-hour clock (true) or 24-hour clock (false)
+  };
+
+  const dateOptions: Intl.DateTimeFormatOptions = {
+    weekday: 'short', // abbreviated weekday name (e.g., 'Mon')
+    month: 'short', // abbreviated month name (e.g., 'Oct')
+    year: 'numeric', // numeric year (e.g., '2023')
+    day: 'numeric', // numeric day of the month (e.g., '25')
+  };
+
+  const timeOptions: Intl.DateTimeFormatOptions = {
+    hour: 'numeric', // numeric hour (e.g., '8')
+    minute: 'numeric', // numeric minute (e.g., '30')
+    hour12: true, // use 12-hour clock (true) or 24-hour clock (false)
+  };
+
+  const formattedDateTime: string = new Date(dateString).toLocaleString(
+    'en-US',
+    dateTimeOptions
+  );
+
+  const formattedDate: string = new Date(dateString).toLocaleString(
+    'en-US',
+    dateOptions
+  );
+
+  const formattedTime: string = new Date(dateString).toLocaleString(
+    'en-US',
+    timeOptions
+  );
+
+  return {
+    dateTime: formattedDateTime,
+    dateOnly: formattedDate,
+    timeOnly: formattedTime,
+  };
+};
 
 // export const convertFileToUrl = (file: File) => URL.createObjectURL(file);
 
